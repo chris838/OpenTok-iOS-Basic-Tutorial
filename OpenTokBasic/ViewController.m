@@ -19,7 +19,7 @@
     UIButton* _unsubscribeButton;
     UILabel* _statusLabel;
 }
-static int topOffset = 68;
+static int topOffset = 90;
 static double widgetHeight = 240;
 static double widgetWidth = 320;
 static NSString* const kApiKey = @"1127";
@@ -44,7 +44,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
 - (void)createUI
 {
     _connectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _connectButton.frame = CGRectMake(10, 10, 100, 44);
+    _connectButton.frame = CGRectMake(10, 32, 100, 44);
     [_connectButton setTitle:@"Connect" forState:UIControlStateNormal];
     [_connectButton addTarget:self
                        action:@selector(connectButtonClicked:)
@@ -52,7 +52,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     [self.view addSubview:_connectButton];    
     
     _disconnectButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _disconnectButton.frame = CGRectMake(10, 10, 100, 44);
+    _disconnectButton.frame = CGRectMake(10, 32, 100, 44);
     [_disconnectButton setTitle:@"Disconnect" forState:UIControlStateNormal];
     [_disconnectButton addTarget:self
                           action:@selector(disconnectButtonClicked:)
@@ -61,7 +61,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     [self.view addSubview:_disconnectButton];    
     
     _publishButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _publishButton.frame = CGRectMake(120, 10, 100, 44);
+    _publishButton.frame = CGRectMake(120, 32, 100, 44);
     [_publishButton setTitle:@"Publish" forState:UIControlStateNormal];
     [_publishButton addTarget:self
                           action:@selector(publishButtonClicked:)
@@ -70,7 +70,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     [self.view addSubview:_publishButton];    
     
     _unpublishButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _unpublishButton.frame = CGRectMake(120, 10, 100, 44);
+    _unpublishButton.frame = CGRectMake(120, 32, 100, 44);
     [_unpublishButton setTitle:@"Unpublish" forState:UIControlStateNormal];
     [_unpublishButton addTarget:self
                          action:@selector(unpublishButtonClicked:)
@@ -79,7 +79,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     [self.view addSubview:_unpublishButton];
     
     _unsubscribeButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _unsubscribeButton.frame = CGRectMake(10, 10 + topOffset + widgetHeight * 2, 100, 44);
+    _unsubscribeButton.frame = CGRectMake(10, 14 + topOffset + widgetHeight * 2, 100, 44);
     [_unsubscribeButton setTitle:@"Unsubscribe" forState:UIControlStateNormal];
     [_unsubscribeButton addTarget:self
                          action:@selector(unsubscribeButtonClicked:)
@@ -88,7 +88,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     [self.view addSubview:_unsubscribeButton];
     
     _statusLabel = [[UILabel alloc] init];
-    _statusLabel.frame = CGRectMake(230, 10, 240, 44);
+    _statusLabel.frame = CGRectMake(10, 4, 240, 24);
     [self setStatusLabel];
     [self.view addSubview:_statusLabel];
 }
@@ -199,7 +199,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
     _publisher.publishVideo = YES;
     [_session publish:_publisher];
     [self.view addSubview:_publisher.view];
-    [_publisher.view setFrame:CGRectMake(0, topOffset, widgetWidth, widgetHeight)];
+    [_publisher.view setFrame:CGRectMake(10, topOffset, widgetWidth, widgetHeight)];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -317,7 +317,7 @@ static bool subscribeToSelf = YES; // Change to NO if you want to subscribe stre
 - (void)subscriberDidConnectToStream:(OTSubscriber*)subscriber
 {
     NSLog(@"subscriberDidConnectToStream (%@)", subscriber.stream.connection.connectionId);
-    [subscriber.view setFrame:CGRectMake(0, topOffset + widgetHeight, widgetWidth, widgetHeight)];
+    [subscriber.view setFrame:CGRectMake(10, topOffset + widgetHeight, widgetWidth, widgetHeight)];
     [self.view addSubview:subscriber.view];
 }
 
