@@ -24,7 +24,7 @@ static double widgetHeight = 240;
 static double widgetWidth = 320;
 static NSString* const kApiKey = @"1127";
 static NSString* const kToken = @"devtoken";
-static NSString* const kSessionId = @"2_MX4wfn4yMDEyLTAyLTA0IDAyOjIxOjI0LjE0ODMwNCswMDowMH4wLjQ2MDExMzM1NDczOH4";
+static NSString* const kSessionId = @"1_MX4wfn4yMDEyLTA1LTA0IDE4OjA1OjI1Ljc4NTEwOCswMDowMH4wLjczNjUxODI3OTk4N34";
 static bool subscribeToSelf = YES; // Change to NO if you want to subscribe streams other than your own
 
 - (void)didReceiveMemoryWarning
